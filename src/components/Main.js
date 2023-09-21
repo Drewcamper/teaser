@@ -1,5 +1,5 @@
 import React from "react";
-import Welcome from "./Welcome";
+import Welcome from "./welcome/Welcome";
 import ProfilePicture from "./ProfilePicture";
 
 import Contacts from "./Contacts";

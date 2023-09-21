@@ -1,0 +1,85 @@
+.arrowButtonContainer {
+  display: flex;
+  position: fixed;
+  bottom: 3vh;
+  justify-content: center;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 100%;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px dashed white;
+}
+
+
+.arrowButtonContainer:hover {
+  background-color: #0e242d;
+  border-style: solid;
+}
+
+.arrow {
+  box-sizing: border-box;
+  height: 2vw;
+  width: 2vw;
+  border-width: 0px 4px 4px 0px;
+  border-style: solid;
+  border-color: white;
+  background-color: transparent;
+  cursor: pointer;
+}
+.down {
+  transform: rotate(45deg);
+}
+.up {
+  margin-top: 1vw;
+  transform: rotate(225deg);
+}
+.next {
+  right: 40vw;
+}
+.previous {
+  left: 40vw;
+}
+@media only screen and (max-width: 1000px) {
+  .arrowButtonContainer {
+    width: 4vw;
+    height: 4vw;
+  }
+  .arrow {
+    height: 3vw;
+    width: 3vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .arrowButtonContainer {
+    width: 5vw;
+    height: 5vw;
+  }
+  .arrow {
+    height: 4vw;
+    width: 4vw;
+  }
+  .next {
+    right: 30vw;
+  }
+  .previous {
+    left: 30vw;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .arrowButtonContainer {
+    width: 7vw;
+    height: 7vw;
+  }
+  .arrow {
+    height: 6vw;
+    width: 6vw;
+  }
+  .next {
+    right: 25vw;
+  }
+  .previous {
+    left: 25vw;
+  }
+}
