@@ -1,13 +1,21 @@
-.webDevBackground {
-  text-align: center;
-  font-size: 3em;
-  margin-bottom: 10vh;
-  transform: translateX(-30vw);
-  color: rgba(255, 255, 255, 0.6);
+
+.titleWrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  top: 5vh;
+  left: 0;
+  /* background-color: red; */
+  width: 100%;
 }
-.nameBackground {
-  text-align: center;
-  font-size: 1em;
-  transform: translateX(-30vw);
-  color: rgba(255, 255, 255, 0.6);
+.ILike {
+  margin-left: 40%;
+  margin-right: 10vw;
+  font-size: 3em;
+}
+.React {
+  background-color: rgb(35, 39, 47);
+  color: rgb(19, 158, 202);
+  padding: 1%;
+  font-size: 6em;
 }

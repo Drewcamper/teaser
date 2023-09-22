@@ -1,19 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../style/usedTools/usedTools.css";
 
-const PreviousSlide = () => {
-  return (
-    <>
-      <div className="webDevBackground">Web developer</div>
-      <div className="nameBackground">András Kőrösi</div>
-    </>
-  );
-};
+import TitleWebDevAndName from "../welcome/TitleWebDevAndName";
+
 
 function UsedTools() {
+const [showPreviousSlide, setShowPreviousSlide] = useState(true)
+setTimeout(() => {
+  setShowPreviousSlide(false)
+}, 1000);
+
+  const Title = () => {
+    return (
+      <div className="titleWrapper">
+        <div className="ILike">I like </div>
+        <div className="React">React</div>
+      </div>
+    );
+  };
+  const ReusableComponents = () => {
+    return <></>;
+  };
+  const MyFavourite = () => {
+    return (
+      <>
+        <Title />
+        <div className="box"></div>
+      </>
+    );
+  };
+
   return (
     <>
-      <PreviousSlide />
+    {showPreviousSlide && <TitleWebDevAndName />}
+      
+      {/* <MyFavourite /> */}
     </>
   );
 }
