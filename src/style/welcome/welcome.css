@@ -7,39 +7,25 @@
   padding-bottom: 10vh;
   color: white;
   align-items: center;
-  transition: justify-content 1s ease;
 }
 
 .textContainer {
-  transition: transform 1s ease;
   display: inline-block;
   margin-top: 10vh;
-}
-
-.moveToLeft {
-  transform: translateX(-30vw);
 }
 
 .webDev {
   text-align: center;
   font-size: 6em;
   margin-bottom: 10vh;
+  animation: fontSizeChangeWebDev 1s ease-in-out 2s forwards;
 }
 .name {
   text-align: center;
   font-size: 3em;
+  animation: fontSizeChangeName 1s ease-in-out 2s forwards;
 }
-.webDevAnimation {
-  text-align: center;
-  font-size: 1px;
-  /* font-size: 3em; */
-  animation: fontSizeChangeWebDev 1s ease-in-out;
-}
-.nameAnimation {
-  text-align: center;
-  font-size: 4em;
-  animation: fontSizeChangeName 1s ease-in-out 3s;
-}
+
 .leftItem {
   padding-top: 10vh;
   padding-bottom: 10vh;
@@ -52,6 +38,7 @@
   }
   100% {
     font-size: 3em;
+    transform: translateX(-30vw);
   }
 }
 @keyframes fontSizeChangeName {
@@ -60,6 +47,7 @@
   }
   100% {
     font-size: 1em;
+    transform: translateX(-30vw);
   }
 }
 @media only screen and (max-width: 1000px) {

@@ -2,6 +2,7 @@ a {
     all: initial;
     cursor: pointer;
   }
+  
   .slideTracker {
     display: flex;
     position: fixed;
@@ -9,17 +10,41 @@ a {
     align-items: center;
     top: 3vh;
   }
+  
   .slides {
-    width: 10px;
-    height: 10px;
-    margin: 0 5px; /* Adjust the spacing between slides as needed */
-    border-radius: 50%;
-  }
-  .normalSlide {
-    background-color: grey;
+    width: 40px;
+    height: 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    background-color: grey; /* Default background color */
   }
   
   .choosenSlide {
     background-color: white;
+    box-shadow: 0px 0px 10px 5px #b4d4d5b7;
+    width: 130px;
+    animation: growSlide 0.3s ease-in-out; /* Use CSS animation for growing */
+  }
+  
+  .shrinkingSlide {
+    animation: shrinkSlide 0.3s ease-in-out; /* Use CSS animation for shrinking */
+  }
+  
+  @keyframes growSlide {
+    from {
+      width: 40px;
+    }
+    to {
+      width: 130px;
+    }
+  }
+  
+  @keyframes shrinkSlide {
+    from {
+      width: 130px;
+    }
+    to {
+      width: 40px;
+    }
   }
   

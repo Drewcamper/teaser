@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from "react";
 import "../../style/welcome/welcome.css";
 import "../../style/welcome/arrow.css";
@@ -7,22 +9,34 @@ import ComponentTwo from "./ComponentTwo";
 import ComponentThree from "./ComponentThree";
 
 const Welcome = () => {
-  const [isLeftAligned, setIsLeftAligned] = useState(false);
   const [slideCount, setSlideCount] = useState(0);
+  const [prevSlideCount, setPrevSlideCount] = useState(0);
+
+  useEffect(() => {
+
+    const interval = setInterval(() => {
+      setSlideCount((prevSlideCount) =>
+        prevSlideCount === componentMap.length - 1 ? 0 : prevSlideCount + 1
+      );
+    }, 5000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [slideCount]);
 
   const nextSlide = () => {
-    setIsLeftAligned(true);
     if (slideCount !== componentMap.length - 1) setSlideCount((prev) => prev + 1);
   };
+
   const previousSlide = () => {
     if (slideCount > 0) setSlideCount((prev) => prev - 1);
   };
 
-  const WebdevAndName = () => {
+  const WebDevAndName = () => {
     return (
       <>
-        <div className={`webDev ${isLeftAligned ? "webDevAnimation" : ""}`}>Web developer</div>
-        <div className={`name ${isLeftAligned ? "nameAnimationTwo" : ""}`}>András Kőrösi</div>
+        <div className="webDev">Web developer</div>
+        <div className="name">András Kőrösi</div>
       </>
     );
   };
@@ -48,35 +62,43 @@ const Welcome = () => {
     );
   };
 
+  const choosenSlide = (index) => {
+    setPrevSlideCount(slideCount);
+    setSlideCount(index);
+  };
+
   const SlideTracker = () => {
     return (
       <div className="slideTracker">
         {Array.from({ length: componentMap.length }, (_, index) => (
           <a
             key={index}
-            href={`#slide-${index + 1}`}
-            className={`slides ${index === slideCount ? "choosenSlide" : "normalSlide"}`}></a>
+            onClick={() => choosenSlide(index)}
+            className={`slides ${
+              index === slideCount
+                ? "choosenSlide"
+                : index === prevSlideCount
+                ? "shrinkingSlide"
+                : "normalSlide"
+            }`}></a>
         ))}
       </div>
     );
   };
-
-  const componentMap = [<WebdevAndName />, <ComponentTwo />, <ComponentThree />];
-
-  const [componentToRender, setComponentToRender] = useState(<WebdevAndName />);
-
   useEffect(() => {
-    setComponentToRender(componentMap[slideCount]);
-    console.log(slideCount);
+    console.log({
+      slideCount: slideCount,
+      prevSlideCount: prevSlideCount,
+    });
   }, [slideCount]);
+
+  const componentMap = [<WebDevAndName />, <ComponentTwo />, <ComponentThree />];
 
   return (
     <div className="welcomeWrapper">
       <SlideTracker />
 
-      <div className={`textContainer ${isLeftAligned ? "moveToLeft" : ""}`}>
-        {componentToRender}
-      </div>
+      <div className="textContainer">{componentMap[slideCount]}</div>
       <NavigationArrows />
     </div>
   );
