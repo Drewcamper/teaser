@@ -14,17 +14,6 @@
   margin-top: 10vh;
 }
 
-.webDev {
-  text-align: center;
-  font-size: 6em;
-  margin-bottom: 10vh;
-  animation: fontSizeChangeWebDev 1s ease-in-out 2s forwards;
-}
-.name {
-  text-align: center;
-  font-size: 3em;
-  animation: fontSizeChangeName 1s ease-in-out 2s forwards;
-}
 
 .leftItem {
   padding-top: 10vh;
@@ -32,24 +21,7 @@
   align-items: end;
 }
 
-@keyframes fontSizeChangeWebDev {
-  0% {
-    font-size: 6em;
-  }
-  100% {
-    font-size: 3em;
-    transform: translateX(-30vw);
-  }
-}
-@keyframes fontSizeChangeName {
-  0% {
-    font-size: 3em;
-  }
-  100% {
-    font-size: 1em;
-    transform: translateX(-30vw);
-  }
-}
+
 @media only screen and (max-width: 1000px) {
 }
 

@@ -1,45 +1,58 @@
-
-
 import React, { useState, useEffect } from "react";
 import "../../style/welcome/welcome.css";
 import "../../style/welcome/arrow.css";
 import "../../style/welcome/slideTracker.css";
 
-import ComponentTwo from "./ComponentTwo";
+import WebDevAndName from "./WebDevAndName";
+import UsedTools from "../usedTools/UsedTools";
 import ComponentThree from "./ComponentThree";
 
 const Welcome = () => {
   const [slideCount, setSlideCount] = useState(0);
   const [prevSlideCount, setPrevSlideCount] = useState(0);
+  const [arrowKeyUp, setArrowKeyUp] = useState(false);
 
-  useEffect(() => {
-
-    const interval = setInterval(() => {
-      setSlideCount((prevSlideCount) =>
-        prevSlideCount === componentMap.length - 1 ? 0 : prevSlideCount + 1
-      );
-    }, 5000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [slideCount]);
+  // useEffect(() => {
+  //   const waitingTime = 5000;
+  //   const interval = setInterval(() => {
+  //     setSlideCount((prevSlideCount) =>
+  //       prevSlideCount === componentMap.length - 1 ? 0 : prevSlideCount + 1
+  //     );
+  //   }, waitingTime);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [slideCount]);
 
   const nextSlide = () => {
+    setArrowKeyUp(false);
     if (slideCount !== componentMap.length - 1) setSlideCount((prev) => prev + 1);
   };
 
   const previousSlide = () => {
-    if (slideCount > 0) setSlideCount((prev) => prev - 1);
+    setArrowKeyUp(true);
+    if (slideCount >= 0) setSlideCount((prev) => prev - 1);
   };
 
-  const WebDevAndName = () => {
-    return (
-      <>
-        <div className="webDev">Web developer</div>
-        <div className="name">András Kőrösi</div>
-      </>
-    );
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 40) {
+      nextSlide();
+    }
   };
+  const handleKeyUp = (event) => {
+    if (event.keyCode === 38) {
+      previousSlide();
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyUp);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyUp);
+    };
+  }, []);
 
   const NavigationArrows = () => {
     return (
@@ -63,7 +76,7 @@ const Welcome = () => {
   };
 
   const choosenSlide = (index) => {
-    setPrevSlideCount(slideCount);
+    setPrevSlideCount(index - 1);
     setSlideCount(index);
   };
 
@@ -86,19 +99,27 @@ const Welcome = () => {
     );
   };
   useEffect(() => {
+    if (slideCount === componentMap.length) {
+      setSlideCount(0);
+    }
+    if (slideCount < 0 && arrowKeyUp) {
+      setSlideCount(componentMap.length - 1);
+    }
+
     console.log({
       slideCount: slideCount,
       prevSlideCount: prevSlideCount,
     });
-  }, [slideCount]);
+  }, [slideCount, prevSlideCount]);
 
-  const componentMap = [<WebDevAndName />, <ComponentTwo />, <ComponentThree />];
+  const componentMap = [<WebDevAndName />, <UsedTools />, <ComponentThree />];
 
   return (
     <div className="welcomeWrapper">
       <SlideTracker />
-
       <div className="textContainer">{componentMap[slideCount]}</div>
+      slide count: {slideCount}
+      componentMap lenthg: {componentMap.length - 1}
       <NavigationArrows />
     </div>
   );
