@@ -1,0 +1,24 @@
+.tableWrapper {
+
+background-color: red;
+width: 100vw;
+height: 100vh;
+display: flex;
+
+}
+
+.list{
+height: 100vh;
+width: 20%;
+background-color: white;
+}
+
+.content{
+height: auto;
+width: 80%;
+background-color: black;
+}
+
+
+
+

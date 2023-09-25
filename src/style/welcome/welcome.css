@@ -2,25 +2,18 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #06bcc1;
-  height: 90vh;
-  padding-bottom: 10vh;
+  /* background-color: #06bcc1; */
+  background-color: rgb(10, 126, 163);
+  height: 100vh;
   color: white;
   align-items: center;
 }
 
-.textContainer {
-  display: inline-block;
-  margin-top: 10vh;
-}
-
-
 .leftItem {
-  padding-top: 10vh;
+  /* padding-top: 10vh; */
   padding-bottom: 10vh;
   align-items: end;
 }
-
 
 @media only screen and (max-width: 1000px) {
 }
@@ -31,4 +24,49 @@
   }
 }
 @media only screen and (max-width: 350px) {
+}
+
+.webDev {
+  text-align: center;
+  font-size: 6em;
+  margin-bottom: 10vh;
+  margin-top: 10vh;
+}
+.name {
+  text-align: center;
+  font-size: 3em;
+}
+
+.directionChooserWrapper {
+  width: 100vw;
+  height: 100vh;
+}
+.tile {
+  position: fixed;
+  width: 30vw;
+  height: 10vw;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  /* color: #0e242d; */
+  color: white;
+  bottom: 5%;
+}
+.tile:hover {
+  background-color: #0e242d;
+  border: 3px dashed rgba(255, 255, 255, 0);
+  color: white;
+}
+.seeProjects {
+  left: 15%;
+}
+.contacts {
+  left: 37.5%;
+}
+.seeTechStac {
+  right: 15%;
 }
