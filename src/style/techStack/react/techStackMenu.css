@@ -1,0 +1,55 @@
+.openMenuWrapper {
+  position: fixed;
+  height: 100vh;
+  width: 20%;
+  top: 0;
+  left: 0;
+  background-color: #0e242d;
+}
+
+.list {
+  padding-top: 5vh;
+}
+.listItem {
+  cursor: pointer;
+  width: 80%;
+  margin: auto;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 5%;
+  margin-top: 2vh;
+}
+.listItem:hover {
+  border: 1px solid white;
+  color: white;
+}
+.activeListItem {
+  border: 1px solid white;
+  color: white;
+}
+
+.menuButton {
+  position: sticky;
+  left: 0;
+  top: 0;
+  border: 1px solid white;
+  color: white;
+  border-radius: 15px;
+  background: none;
+  padding: 10px;
+  margin: 10px;
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+.menuButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
+.menuButtonOpened {
+  left: 15%;
+  border-color: rgba(255, 255, 255, 0.3);
+}
