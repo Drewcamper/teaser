@@ -44,4 +44,4 @@ const ReusableComponents = () => {
   );
 };
 
-export default ReusableComponents;
+export default ReusableComponents

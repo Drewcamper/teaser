@@ -53,3 +53,24 @@
   left: 15%;
   border-color: rgba(255, 255, 255, 0.3);
 }
+@media only screen and (max-width: 1400px) {
+  .menuButtonOpened {
+    left: 15%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .openMenuWrapper {
+    width: 30%;
+  }
+  .menuButtonOpened {
+    left: 20%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .openMenuWrapper {
+    width: 100%;
+  }
+  .menuButtonOpened {
+    left: 85%;
+  }
+}

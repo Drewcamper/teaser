@@ -3,10 +3,7 @@ import "../../style/techStack/react/techStackMenu.css";
 
 import { DataContext } from "../context/context";
 
-
-
 import ReusableComponents from "./react/ReusableComponents";
-
 
 function TechStackMenu() {
   const menuTitles = [
@@ -26,19 +23,19 @@ function TechStackMenu() {
 
   const contentToRender = [
     [<ReusableComponents />, "hooks"],
-    ["Node.js", "Firebase", "GitHub", "Jest"],
+    ["Node.js", "Firebase", "GitHub,", "Jest"],
     ["MongoDB and SQL", "Stripe"],
     ["npm"],
     ["Webpack", "Babel", "ESLint", "Prettier"],
   ];
-
+  const [activeContentLocation, setActiveContentLoaction] = useState([0, 0]);
   const [activeMenuRecord, setActiveMenuRecord] = useState(0);
   const [activeSubMenuRecord, setActiveSubMenuRecord] = useState(0);
+
   const { setContent } = useContext(DataContext);
   const MenuList = () => {
     const openSubMenu = (index) => {
       let prevIndex = null;
-
       index !== prevIndex ? setActiveMenuRecord(index) : setActiveMenuRecord(0);
       prevIndex = index;
     };
@@ -60,14 +57,24 @@ function TechStackMenu() {
   const MenuSubCategories = () => {
     const chooseContent = (index) => {
       setActiveSubMenuRecord(index);
+      setActiveContentLoaction([activeMenuRecord, index]);
+
       setContent(contentToRender[activeMenuRecord][index]);
+      if (window.screen.width < 601) {
+        setMenuOpen(false);
+        setMenuButton("open");
+      }
     };
     return (
       <div className="list">
         {Array.from({ length: menuSubCategories[activeMenuRecord].length }, (_, index) => (
           <div
             key={index}
-            className={`listItem ${index === activeSubMenuRecord ? "activeListItem" : ""}`}
+            className={`listItem ${
+              index === activeSubMenuRecord && activeContentLocation[0] === activeMenuRecord
+                ? "activeListItem"
+                : ""
+            }`}
             onClick={() => chooseContent(index)}>
             {menuSubCategories[activeMenuRecord][index]}
           </div>
