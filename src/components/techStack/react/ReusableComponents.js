@@ -1,4 +1,5 @@
 import React from "react";
+import "../../../style/techStack/react/reusableComponents.css";
 
 const ReusableComponents = () => {
   return (
@@ -17,26 +18,14 @@ const ReusableComponents = () => {
       </div>
       <iframe
         src="https://codesandbox.io/embed/reusable-rsy7d8?fontsize=14&hidenavigation=1&theme=dark&view=editor"
-        style={{
-          width: "100%",
-          height: "500px",
-          border: "0",
-          borderRadius: "4px",
-          overflow: "hidden",
-        }}
+        className="reusableHtml"
         title="reusable "
         allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
         sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
 
       <iframe
         src="https://codesandbox.io/embed/zen-wildflower-5p6wqv?autoresize=1&fontsize=14&hidenavigation=1&theme=dark&view=editor"
-        style={{
-          width: "100%",
-          height: "80vh",
-          border: "0",
-          borderRadius: "4px",
-          overflow: "hidden",
-        }}
+        className="reusableReact"
         title="zen-wildflower-5p6wqv"
         allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
         sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
@@ -44,4 +33,4 @@ const ReusableComponents = () => {
   );
 };
 
-export default ReusableComponents
+export default ReusableComponents;

@@ -1,5 +1,11 @@
-.techStackWrapper{
-    background-color: rgb(10,126,163);
-    width: 100vw;
-    height: 100vh;
+.techStackWrapper {
+  background-color: rgb(10, 126, 163);
+  width: 100vw;
+  min-height: 100vh;
+}
+.content {
+  width: 80%;    
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 10vh;
 }

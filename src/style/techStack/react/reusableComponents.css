@@ -1,0 +1,15 @@
+iframe {
+  width: 100%;
+  height: 50vh;
+  border: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  padding-bottom: 10vh;
+  padding-top: 10vh;
+}
+.reusableHtml{
+    height: 35vh;
+}
+.reusableReact{
+    height: 65vh;
+}
