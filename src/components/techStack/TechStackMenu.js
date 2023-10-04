@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "../../style/techStack/techStackMenu.css";
 import { DataContext } from "../context/context";
 
@@ -7,14 +6,16 @@ import ReusableComponents from "./react/ReusableComponents";
 import Hooks from "./react/Hooks";
 
 import Node from "./frontendTools/Node";
+import Express from "./frontendTools/Express";
 import Firebase from "./frontendTools/Firebase";
 import Github from "./frontendTools/Github";
 import Jest from "./frontendTools/Jest";
 
-import MongodDbAndSQL from "./backendAndDB/MongodDbAndSQL.JS";
+import DataBases from "./backendAndDB/DataBases";
 import Stripe from "./backendAndDB/Stripe";
 
 import NpmAndYarn from "./packageManagers/NpmAndYarn";
+
 import Webpack from "./otherTools/Webpack";
 import ESLint from "./otherTools/ESLint";
 import Prettier from "./otherTools/Prettier";
@@ -29,16 +30,16 @@ function TechStackMenu() {
   ];
   const menuSubCategories = [
     ["reusable components", "hooks"],
-    ["Node.js", "Firebase", "GitHub", "Jest"],
-    ["MongoDB and SQL", "Stripe"],
+    ["Node.js", "Express.js", "Firebase", "GitHub", "Jest"],
+    ["Databases", "Stripe"],
     ["npm and yarn"],
     ["Webpack", "ESLint", "Prettier"],
   ];
 
   const contentToRender = [
     [<ReusableComponents />, <Hooks />],
-    [<Node />, <Firebase />, <Github />, <Jest />],
-    [<MongodDbAndSQL />, <Stripe />],
+    [<Node />, <Express />, <Firebase />, <Github />, <Jest />],
+    [<DataBases />, <Stripe />],
     [<NpmAndYarn />],
     [<Webpack />, <ESLint />, <Prettier />],
   ];
@@ -60,28 +61,33 @@ function TechStackMenu() {
     setContent(contentToRender[activeMenuRecord][index]);
     setMenuOpen(false);
   };
+
   const toggleMenu = () => {
-    menuOpen ? setMenuOpen(false) : setMenuOpen(true);
+    setMenuOpen(!menuOpen);
   };
+
   const MenuButton = () => {
     return (
-      <button className={`menuButton ${menuOpen ? "menuButtonOpened" : ""}`} onClick={toggleMenu}>
-        {menuOpen ? "x" : "menu"}
-      </button>
-    );
-  };
+      // <button className={`menuButton ${menuOpen ? "menuButtonOpened" : ""}`} onClick={toggleMenu}>
 
-  const HomeButton = () => {
-    const navigate = useNavigate();
+      // </button>
+      <div className="menu" onClick={toggleMenu}>
+        <div className={menuOpen ? "open" : "bar"}></div>
+        <div className={menuOpen ? "open" : "bar"}></div>
+        <div className={menuOpen ? "open" : "bar"}></div>
+      </div>
+//       <div className="menu" onClick={toggleMenu}>
+//   <div className={menuOpen ? "open" : "bar"}>
+//     <div className="child"></div>
+//   </div>
+//   <div className={menuOpen ? "open" : "bar"}>
+//     <div className="child"></div>
+//   </div>
+//   <div className={menuOpen ? "open" : "bar"}>
+//     <div className="child"></div>
+//   </div>
+// </div>
 
-    const navigateToMain = () => {
-      navigate("/");
-    };
-
-    return (
-      <button className="homeButton" onClick={navigateToMain}>
-        home
-      </button>
     );
   };
 
@@ -137,7 +143,7 @@ function TechStackMenu() {
   return menuOpen ? (
     <div className="openMenuWrapper">
       <MenuButton />
-      {/* <HomeButton /> */}
+
       <MenuList />
     </div>
   ) : (

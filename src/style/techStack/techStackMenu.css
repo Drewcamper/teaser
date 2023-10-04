@@ -3,7 +3,7 @@
   height: 100vh;
   width: 20%;
   top: 0;
-  left: 0;
+  right: 0;
   background-color: #0e242d;
   /* z-index: 1; */
 }
@@ -30,47 +30,6 @@
   color: white;
 }
 
-button {
-  border-radius: 15px;
-  background: none;
-  padding: 10px;
-  margin: 10px;
-  text-align: left;
-  text-decoration: none;
-  font: inherit;
-  cursor: pointer;
-  outline: none;
-  left: 0;
-  top: 0;
-  text-align: center;
-}
-.menuButton {
-  color: white;
-  border: 1px solid white;
-  height: 50px;
-  top: 0%;
-  position: fixed;
-}
-.menuButton:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: white;
-}
-.menuButtonOpened {
-  left: 10px;
-  /* background-color: red; */
-  width: 50px;
-  border-color: rgba(255, 255, 255, 0.3);
-}
-.homeButton {
-  position: fixed;
-  left: 14.5vw;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  border-radius: 15px;
-  padding: 10px;
-  margin: 10px;
-  height: 50px;
-}
 @media only screen and (max-width: 1400px) {
   .menuButtonOpened {
     left: 15%;
@@ -90,5 +49,120 @@ button {
   }
   .menuButtonOpened {
     left: 85%;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  width: 40px;
+}
+
+.bar {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  height: 5px;
+  margin: 5px 0;
+  transition: none;
+}
+
+.open {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  height: 2.5px;
+  margin: 4px 0;
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out, 0.3s ease-in-out;
+}
+
+.bar:nth-of-type(1) {
+  width: 100%;
+  animation: backgroundAnimation 0.3s ease-in-out, transformAnimation1Backwards 0.3s ease-in-out;
+}
+
+.bar:nth-of-type(2) {
+  width: 50%;
+  margin-left: 50%;
+  animation: backgroundAnimation 0.3s ease-in-out, transformAnimation2Backwards 0.3s ease-in-out;
+}
+
+.bar:nth-of-type(3) {
+  width: 75%;
+  margin-left: 25%;
+  animation: backgroundAnimation 0.3s ease-in-out, transformAnimation3Backwards 0.3s ease-in-out;
+}
+
+.open:nth-of-type(1) {
+  width: 100%;
+  background: transparent;
+  transform: translateY(11px) translateZ(10px) rotateZ(45deg);
+}
+
+.open:nth-of-type(2) {
+  transform: rotateZ(45deg);
+  animation: backgroundAnimation 0.3s ease-in-out, transformAnimation2 0.3s ease-in-out;
+}
+
+.open:nth-of-type(3) {
+  margin-left: 0%;
+  transform: rotateZ(-45deg) translate(7px, -7px);
+  animation: backgroundAnimation 0.3s ease-in-out, transformAnimation3 0.3s ease-in-out;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background: rgba(255, 255, 255, 0.7);
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+@keyframes transformAnimation2 {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(45deg);
+  }
+}
+
+@keyframes transformAnimation3 {
+  0% {
+    transform: rotateZ(0) translate(0, 0);
+  }
+  100% {
+    transform: rotateZ(-45deg) translate(7px, -7px);
+  }
+}
+@keyframes transformAnimation1Backwards {
+  0% {
+    background: transparent;
+    transform: translateY(11px) translateZ(10px) rotateZ(45deg);
+  }
+  100% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+}
+@keyframes transformAnimation2Backwards {
+  0% {
+    transform: rotateZ(45deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes transformAnimation3Backwards {
+  0% {
+    transform: rotateZ(-45deg) translate(7px, -7px);
+  }
+  100% {
+    transform: rotateZ(0) translate(0, 0);
   }
 }

@@ -1,0 +1,21 @@
+.navigateToWebshop {
+  background: none;
+  padding: 10px;
+  margin: 10px;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  right: 0;
+  top: 0;
+  text-align: center;
+  border-radius: 15px;
+
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  top: 0%;
+}
+.navigateToWebshop:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
