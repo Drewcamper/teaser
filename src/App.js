@@ -3,7 +3,7 @@ import "./App.css";
 import Main from "./components/Main";
 import TechStack from "./components/techStack/TechStack";
 
-import Webshop from "./components/projects/Webshop";
+import Projects from "./components/projects/Projects";
 
 import { DataProvider } from "./components/context/context";
 
@@ -14,8 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/techStack" element={<TechStack />} />
-          <Route path="/webshop" element={<Webshop />} />
-
+          <Route path="/projects" element={<Projects />} />
         </Routes>
       </BrowserRouter>
     </DataProvider>

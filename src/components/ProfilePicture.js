@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../style/profilePicture.css";
-import pp from "../images/pp.jpg";
-import ppSmall from "../images/ppSmall.png";
+// import pp from "../images/pp.jpg";
+// import ppSmall from "../images/ppSmall.png";
 
 function ProfilePicture() {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +12,7 @@ function ProfilePicture() {
   return (
     <div>
       <div className="element pictureWrapper">
-        {isLoading ? (
+        {/* {isLoading ? (
           <img
             className="profilePicture"
             src={ppSmall}
@@ -22,7 +22,7 @@ function ProfilePicture() {
           />
         ) : (
           <img className="profilePicture" src={pp} alt="Profile Picture" loading="lazy" />
-        )}
+        )} */}
       </div>
     </div>
   );

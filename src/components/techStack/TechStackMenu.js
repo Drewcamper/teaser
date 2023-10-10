@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import "../../style/techStack/techStackMenu.css";
 import { DataContext } from "../context/context";
 
@@ -19,6 +19,7 @@ import NpmAndYarn from "./packageManagers/NpmAndYarn";
 import Webpack from "./otherTools/Webpack";
 import ESLint from "./otherTools/ESLint";
 import Prettier from "./otherTools/Prettier";
+
 
 function TechStackMenu() {
   const menuTitles = [
@@ -68,26 +69,11 @@ function TechStackMenu() {
 
   const MenuButton = () => {
     return (
-      // <button className={`menuButton ${menuOpen ? "menuButtonOpened" : ""}`} onClick={toggleMenu}>
-
-      // </button>
       <div className="menu" onClick={toggleMenu}>
         <div className={menuOpen ? "open" : "bar"}></div>
         <div className={menuOpen ? "open" : "bar"}></div>
         <div className={menuOpen ? "open" : "bar"}></div>
       </div>
-//       <div className="menu" onClick={toggleMenu}>
-//   <div className={menuOpen ? "open" : "bar"}>
-//     <div className="child"></div>
-//   </div>
-//   <div className={menuOpen ? "open" : "bar"}>
-//     <div className="child"></div>
-//   </div>
-//   <div className={menuOpen ? "open" : "bar"}>
-//     <div className="child"></div>
-//   </div>
-// </div>
-
     );
   };
 
@@ -143,9 +129,9 @@ function TechStackMenu() {
   return menuOpen ? (
     <div className="openMenuWrapper">
       <MenuButton />
-
       <MenuList />
     </div>
+ 
   ) : (
     <MenuButton />
   );
